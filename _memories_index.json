@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "test notes": {
+      "entity_name": "Test Notes",
+      "type": "entity",
+      "folder": "testing",
+      "file": "Memories\\testing\\test_notes.md",
+      "summary": "A test note is created with an appended poem about software testing.",
+      "created_at": "2026-02-03T04:25:46.598510",
+      "last_updated": "2026-02-03T04:25:46.598510"
+    },
+    "religion": {
+      "entity_name": "Religion",
+      "type": "entity",
+      "folder": "faith",
+      "file": "Memories\\faith\\religion.md",
+      "summary": "Expressing hope and a touch of humor in the realm of religious faith.",
+      "created_at": "2026-02-03T04:33:37.020264",
+      "last_updated": "2026-02-03T04:33:37.020264"
+    },
+    "finalverificationnote": {
+      "entity_name": "FinalVerificationNote",
+      "type": "entity",
+      "folder": "verification",
+      "file": "Memories\\verification\\finalverificationnote.md",
+      "summary": "Saving a final verification note to a new folder called Verification.",
+      "created_at": "2026-02-03T04:38:31.220571",
+      "last_updated": "2026-02-03T04:38:31.220571"
+    },
+    "cramit": {
+      "entity_name": "cramit",
+      "type": "entity",
+      "folder": "cramit",
+      "file": "Memories\\cramit\\cramit.md",
+      "summary": "Saving information about a startup called cramit.",
+      "created_at": "2026-02-03T04:40:33.268939",
+      "last_updated": "2026-02-03T04:41:32.522752"
+    }
+  }
+}

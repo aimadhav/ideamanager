@@ -1,0 +1,48 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "google-vertex/gemini-3-pro-preview",
+  "provider": {
+    "google-vertex": {
+      "options": {
+        "project": "lustrous-strand-485621-q1",
+        "location": "global"
+      },
+      "models": {
+        "gemini-3-pro-preview": {
+          "name": "Gemini 3 Pro (Thinking)",
+          "options": {
+            "thinkingConfig": {
+              "thinkingLevel": "high",
+              "includeThoughts": true
+            }
+          }
+        },
+        "gemini-3-flash-preview": {
+          "name": "Gemini 3 Flash (Thinking)",
+          "options": {
+            "thinkingLevel": "medium",
+            "includeThoughts": true
+          }
+        },
+        "gemini-2.5-pro": {
+          "name": "Gemini 2.5 Pro (Thinking)",
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": 8192,
+              "includeThoughts": true
+            }
+          }
+        },
+        "gemini-2.5-flash": {
+          "name": "Gemini 2.5 Flash (Thinking)",
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": 4096,
+              "includeThoughts": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

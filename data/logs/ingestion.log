@@ -1,0 +1,77 @@
+
+=== 2026-02-03 04:25:46.595510 ===
+INPUT:
+
+his is a test note. @ai save to testing folder and add poem about testing
+
+AI OUTPUT:
+{
+  "refined_content": "This is a test note.\n\nA poem about testing:\n\nIn realms of code, where bugs reside,\nA tester's quest, with naught to hide.\nThrough logic's maze, they bravely tread,\nTo find the flaws, the errors spread.\n\nWith watchful eyes and keenest mind,\nThey seek the faults, of every kind.\nFrom edge cases to inputs strange,\nThey push the code, to rearrange.\n\nFor in their hands, the power lies,\nTo make the software truly rise.\nSo let us hail the testers bold,\nWhose stories in the code unfold.",
+  "entity": "Test Notes",
+  "folder": "Testing",
+  "action": "new",
+  "summary": "A test note is created with an appended poem about software testing."
+}
+========================
+
+
+=== 2026-02-03 04:33:37.017257 ===
+INPUT:
+praying to god this works as expected @ai pray to some hindu god
+
+AI OUTPUT:
+{
+  "refined_content": "praying to god this works as expected pray to some hindu god",
+  "entity": "Religion",
+  "folder": "Faith",
+  "action": "new",
+  "summary": "Expressing hope and a touch of humor in the realm of religious faith."
+}
+========================
+
+
+=== 2026-02-03 04:38:31.218468 ===
+INPUT:
+This is the final verification note. @ai save to final_test_folder
+
+AI OUTPUT:
+{
+  "refined_content": "This is the final verification note.",
+  "entity": "FinalVerificationNote",
+  "folder": "Verification",
+  "action": "new",
+  "summary": "Saving a final verification note to a new folder called Verification."
+}
+========================
+
+
+=== 2026-02-03 04:40:33.264429 ===
+INPUT:
+cramit is going to be the biggest startup ever @ai make a folder called cramit and file cramit 
+
+
+AI OUTPUT:
+{
+  "refined_content": "cramit is going to be the biggest startup ever",
+  "entity": "cramit",
+  "folder": "cramit",
+  "action": "new",
+  "summary": "Saving information about a startup called cramit."
+}
+========================
+
+
+=== 2026-02-03 04:41:32.519753 ===
+INPUT:
+I neeed to do may things to make cramit big like getting a team or coding myself the app 
+
+AI OUTPUT:
+{
+  "refined_content": "I need to do many things to make cramit big, like getting a team or coding the app myself.",
+  "entity": "cramit",
+  "folder": "cramit",
+  "action": "append",
+  "summary": "Listing the tasks required to develop the Cramit startup."
+}
+========================
+

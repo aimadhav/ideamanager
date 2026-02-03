@@ -111,6 +111,18 @@ async function startBridge() {
                            msg.message.videoMessage?.caption ||
                            msg.message.documentMessage?.caption || "";
 
+                // PING-PONG Check (Before processing)
+                if (text.trim().toLowerCase() === 'ping') {
+                    console.log("   🏓 Ping received. Sending Pong...");
+                    await sock.sendMessage(jid, { text: 'pong' });
+                    // Update state to avoid processing this ping again on restart
+                    if (ts > lastProcessedTime) {
+                        lastProcessedTime = ts;
+                        updateLastTimestamp(ts);
+                    }
+                    continue; // Skip main processing
+                }
+
                 // 2. Handle Attachments
                 let attachmentPath = null;
                 const isMedia = msg.message.imageMessage || msg.message.videoMessage || msg.message.documentMessage;

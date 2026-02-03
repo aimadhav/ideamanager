@@ -43,7 +43,7 @@
       "file": "Memories\\learningcs\\browserautomation.md",
       "summary": "Important points extracted and tidied from a text describing how to build a browser automation system.",
       "created_at": "2026-02-03T05:32:35.796316",
-      "last_updated": "2026-02-03T05:35:24.163720"
+      "last_updated": "2026-02-03T11:47:58.598783"
     },
     "paneer": {
       "entity_name": "Paneer",
@@ -61,7 +61,7 @@
       "file": "Memories\\relationships\\personal.md",
       "summary": "An expression of affection.",
       "created_at": "2026-02-03T06:34:50.839906",
-      "last_updated": "2026-02-03T06:34:50.839906"
+      "last_updated": "2026-02-03T12:11:58.736675"
     },
     "enna sona": {
       "entity_name": "Enna Sona",
@@ -79,7 +79,7 @@
       "file": "Memories\\miscellaneous\\check.md",
       "summary": "A simple statement expressing a check on the world.",
       "created_at": "2026-02-03T07:24:21.617531",
-      "last_updated": "2026-02-03T07:36:06.925823"
+      "last_updated": "2026-02-03T12:00:24.375983"
     },
     "birds": {
       "entity_name": "Birds",
@@ -89,6 +89,42 @@
       "summary": "The user asks for a bird name, and the AI responds with 'robin'.",
       "created_at": "2026-02-03T07:36:41.739354",
       "last_updated": "2026-02-03T07:36:41.739354"
+    },
+    "alert": {
+      "entity_name": "Alert",
+      "type": "entity",
+      "folder": "alert",
+      "file": "Memories\\alert\\alert.md",
+      "summary": "A statement checking readability.",
+      "created_at": "2026-02-03T08:25:58.531071",
+      "last_updated": "2026-02-03T12:10:26.559680"
+    },
+    "dc notes": {
+      "entity_name": "DC notes",
+      "type": "entity",
+      "folder": "digital_communication",
+      "file": "Memories\\digital_communication\\dc_notes.md",
+      "summary": "A note about the power of transistors in digital communication.",
+      "created_at": "2026-02-03T09:25:41.450051",
+      "last_updated": "2026-02-03T09:25:41.450051"
+    },
+    "miscellaneous": {
+      "entity_name": "Miscellaneous",
+      "type": "entity",
+      "folder": "miscellaneous",
+      "file": "Memories\\miscellaneous\\miscellaneous.md",
+      "summary": "Attempted to extract video ID and transcript from a YouTube link but failed.",
+      "created_at": "2026-02-03T09:31:32.733860",
+      "last_updated": "2026-02-03T09:31:32.733860"
+    },
+    "dsa cards": {
+      "entity_name": "DSA Cards",
+      "type": "entity",
+      "folder": "programming",
+      "file": "Memories\\programming\\dsa_cards.md",
+      "summary": "Instructions to build a database for DSA cards using specified tools and technologies.",
+      "created_at": "2026-02-03T11:48:33.182082",
+      "last_updated": "2026-02-03T11:48:33.182082"
     }
   }
 }

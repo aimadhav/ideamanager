@@ -536,3 +536,352 @@ AI OUTPUT:
 ========================
 
 [2026-02-03 07:36:41.774606] [WORKER] Finished processing inbox
+[2026-02-03 08:25:54.664284] [WORKER] Received PROCESS task
+[2026-02-03 08:25:55.168258] [DEBUG] Found 2 files in buffer.
+[2026-02-03 08:25:55.169869] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770087271_AC02B0F69DE7C2C7844683CC1C1BE33D.json
+
+=== 2026-02-03 08:25:57.223321 [whatsapp] ===
+INPUT:
+Can you read it if yes @ai make a folder alert and put this
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Can you read it if yes",
+  "entity": "Alert",
+  "folder": "Alert",
+  "action": "new",
+  "summary": "A statement checking readability, saved to a new 'Alert' folder."
+}
+========================
+
+[2026-02-03 08:25:57.248413] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770087347_AC23694DA27312564BE8626E8344EF56.json
+
+=== 2026-02-03 08:25:58.526826 [whatsapp] ===
+INPUT:
+Can you read it if yes @ai make a folder alert and put this
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Can you read it if yes",
+  "entity": "Alert",
+  "folder": "Alert",
+  "action": "new",
+  "summary": "A statement checking readability."
+}
+========================
+
+[2026-02-03 08:25:58.568951] [WORKER] Finished processing inbox
+[2026-02-03 08:25:58.570234] [WORKER] Received PROCESS task
+[2026-02-03 08:25:59.073527] [WORKER] Finished processing inbox
+[2026-02-03 08:31:43.967728] [WORKER] Received PROCESS task
+[2026-02-03 08:31:44.470713] [WORKER] Finished processing inbox
+[2026-02-03 08:31:48.125404] [WORKER] Received PROCESS task
+[2026-02-03 08:31:48.629123] [WORKER] Finished processing inbox
+[2026-02-03 08:31:49.177677] [WORKER] Received PROCESS task
+[2026-02-03 08:31:49.682430] [WORKER] Finished processing inbox
+[2026-02-03 08:31:49.749702] [WORKER] Received PROCESS task
+[2026-02-03 08:31:50.253957] [WORKER] Finished processing inbox
+[2026-02-03 08:37:21.836940] [WORKER] Received PROCESS task
+[2026-02-03 08:37:22.339238] [WORKER] Finished processing inbox
+[2026-02-03 08:37:22.339238] [WORKER] Received PROCESS task
+[2026-02-03 08:37:22.840948] [WORKER] Finished processing inbox
+[2026-02-03 08:37:53.407869] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770088072_ACC219D330F83F020A8A752BF403B90F.json
+[2026-02-03 08:37:53.408378] [WORKER] Received PROCESS task
+[2026-02-03 08:37:53.911862] [DEBUG] Found 1 files in buffer.
+[2026-02-03 08:37:53.911862] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770088072_ACC219D330F83F020A8A752BF403B90F.json
+
+=== 2026-02-03 08:37:55.424785 [whatsapp] ===
+INPUT:
+I love ❤❤❤❤
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "I love ❤❤❤❤",
+  "entity": "Personal",
+  "folder": "Relationships",
+  "action": "append",
+  "summary": "An expression of affection is recorded."
+}
+========================
+
+[2026-02-03 08:37:55.469639] [WORKER] Finished processing inbox
+[2026-02-03 09:25:37.875701] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770090907_AC34BEC1432D994109B252A93627D0F4.json
+[2026-02-03 09:25:38.473830] [WORKER] Received PROCESS task
+[2026-02-03 09:25:39.258940] [DEBUG] Found 1 files in buffer.
+[2026-02-03 09:25:39.260939] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770090907_AC34BEC1432D994109B252A93627D0F4.json
+[2026-02-03 09:25:39.683546] [MONITOR] Files found via Polling Fallback
+
+=== 2026-02-03 09:25:41.390594 [whatsapp] ===
+INPUT:
+Digital communication notes the transistor is very powerful@ AI put this into DC notes folder
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Digital communication notes the transistor is very powerful",
+  "entity": "DC notes",
+  "folder": "Digital Communication",
+  "action": "new",
+  "summary": "A note about the power of transistors in digital communication."
+}
+========================
+
+[2026-02-03 09:25:41.697815] [WORKER] Finished processing inbox
+[2026-02-03 09:25:42.351534] [WORKER] Received PROCESS task
+[2026-02-03 09:25:42.908059] [WORKER] Finished processing inbox
+[2026-02-03 09:29:50.727626] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770091188_AC43EF3D38A4664A8D4C2391D3CDD5FF.json
+[2026-02-03 09:29:50.729639] [WORKER] Received PROCESS task
+[2026-02-03 09:29:51.233239] [DEBUG] Found 1 files in buffer.
+[2026-02-03 09:29:51.265557] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770091188_AC43EF3D38A4664A8D4C2391D3CDD5FF.json
+[2026-02-03 09:29:59.753817] [MONITOR] Files found via Polling Fallback
+
+=== 2026-02-03 09:30:01.693388 [whatsapp] ===
+INPUT:
+
+
+[System: Associated file archived at: C:\Users\madha\Desktop\ideamanger\Memories\Library\2026\02\att_1770091188_ac43ef3d38a4664a8d4c2391d3cdd5ff.pdf]
+
+
+--- [ATTACHMENT CONTEXT: att_1770091188_ac43ef3d38a4664a8d4c2391d3cdd5ff.pdf] ---
+
+
+
+
+-----------------------------------
+...
+
+AI OUTPUT:
+{
+  "refined_content": "No content to process.",
+  "entity": "Miscellaneous",
+  "folder": "Miscellaneous",
+  "action": "new",
+  "summary": "No content was provided for processing."
+}
+========================
+
+[2026-02-03 09:30:01.734812] [WORKER] Finished processing inbox
+[2026-02-03 09:30:01.734812] [WORKER] Received PROCESS task
+[2026-02-03 09:30:02.238533] [WORKER] Finished processing inbox
+[2026-02-03 09:31:27.489997] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770091286_AC955BEEF60C2546497AA115691272CC.json
+[2026-02-03 09:31:27.490999] [WORKER] Received PROCESS task
+[2026-02-03 09:31:27.994446] [DEBUG] Found 1 files in buffer.
+[2026-02-03 09:31:27.995463] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770091286_AC955BEEF60C2546497AA115691272CC.json
+[2026-02-03 09:31:29.842046] [MONITOR] Files found via Polling Fallback
+
+=== 2026-02-03 09:31:32.730915 [whatsapp] ===
+INPUT:
+https://youtube.com/shorts/jBKggAXjhVc?si=iMxQeLgMFBU_aViz
+
+
+--- [YOUTUBE TRANSCRIPT: None] ---
+Could not extract Video ID
+-----------------------------------
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Could not extract Video ID from https://youtube.com/shorts/jBKggAXjhVc?si=iMxQeLgMFBU_aViz\n\n--- [YOUTUBE TRANSCRIPT: None] ---",
+  "entity": "Miscellaneous",
+  "folder": "Miscellaneous",
+  "action": "new",
+  "summary": "Attempted to extract video ID and transcript from a YouTube link but failed."
+}
+========================
+
+[2026-02-03 09:31:32.739861] [WORKER] Finished processing inbox
+[2026-02-03 09:31:32.739861] [WORKER] Received PROCESS task
+[2026-02-03 09:31:33.243875] [WORKER] Finished processing inbox
+[2026-02-03 11:47:54.964391] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770098388_ACB33CF5993C376CEDA97C9B1DF41BDE.json
+[2026-02-03 11:47:54.980389] [WORKER] Received PROCESS task
+[2026-02-03 11:47:55.494989] [DEBUG] Found 1 files in buffer.
+[2026-02-03 11:47:55.495886] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770098388_ACB33CF5993C376CEDA97C9B1DF41BDE.json
+
+=== 2026-02-03 11:47:57.112934 [whatsapp] ===
+INPUT:
+Build the data base for dsa cards use aria and playwright with gemini 3 flash or 2.5 flash
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Build the data base for dsa cards use aria and playwright with gemini 3 flash or 2.5 flash",
+  "entity": "BrowserAutomation",
+  "folder": "learningcs",
+  "action": "append",
+  "summary": "Instructions to build a database for DSA cards using specified technologies."
+}
+========================
+
+[2026-02-03 11:47:58.627809] [WORKER] Finished processing inbox
+[2026-02-03 11:48:29.228617] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099508_ACC5A69C3B1D3B271F39EC5CED15F3F0.json
+[2026-02-03 11:48:29.229618] [WORKER] Received PROCESS task
+[2026-02-03 11:48:29.730997] [DEBUG] Found 1 files in buffer.
+[2026-02-03 11:48:29.730997] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099508_ACC5A69C3B1D3B271F39EC5CED15F3F0.json
+
+=== 2026-02-03 11:48:31.158182 [whatsapp] ===
+INPUT:
+Build the data base for dsa cards use aria and playwright with gemini 3 flash or 2.5 flash
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Build the database for DSA cards using Aria and Playwright with Gemini 3 Flash or 2.5 Flash.",
+  "entity": "DSA Cards",
+  "folder": "Programming",
+  "action": "new",
+  "summary": "Instructions to build a database for DSA cards using specified tools and technologies."
+}
+========================
+
+[2026-02-03 11:48:33.097534] [MONITOR] Files found via Polling Fallback
+[2026-02-03 11:48:34.134075] [WORKER] Finished processing inbox
+[2026-02-03 11:48:34.135069] [WORKER] Received PROCESS task
+[2026-02-03 11:48:34.638401] [WORKER] Finished processing inbox
+[2026-02-03 11:55:12.549093] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099911_ACCCD0760B2D2513A3818E584236D10A.json
+[2026-02-03 11:55:12.571629] [WORKER] Received PROCESS task
+[2026-02-03 11:55:13.077456] [DEBUG] Found 1 files in buffer.
+[2026-02-03 11:55:13.077456] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099911_ACCCD0760B2D2513A3818E584236D10A.json
+[2026-02-03 11:55:13.278765] [MONITOR] Files found via Polling Fallback
+
+=== 2026-02-03 11:55:14.945977 [whatsapp] ===
+INPUT:
+Ping
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Ping",
+  "entity": "Check",
+  "folder": "Miscellaneous",
+  "action": "append",
+  "summary": "A simple statement expressing a check on the world."
+}
+========================
+
+[2026-02-03 11:55:15.011506] [WORKER] Finished processing inbox
+[2026-02-03 11:55:15.012501] [WORKER] Received PROCESS task
+[2026-02-03 11:55:15.527579] [WORKER] Finished processing inbox
+[2026-02-03 11:55:22.317825] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099921_ACB6D4373F3C843A04C5F53CED34E42E.json
+[2026-02-03 11:55:22.319835] [WORKER] Received PROCESS task
+[2026-02-03 11:55:22.821619] [DEBUG] Found 1 files in buffer.
+[2026-02-03 11:55:22.821619] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770099921_ACB6D4373F3C843A04C5F53CED34E42E.json
+[2026-02-03 11:55:23.282384] [MONITOR] Files found via Polling Fallback
+
+=== 2026-02-03 11:55:24.034797 [whatsapp] ===
+INPUT:
+ping
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "ping",
+  "entity": "Check",
+  "folder": "Miscellaneous",
+  "action": "append",
+  "summary": "A simple statement expressing a check on the world."
+}
+========================
+
+[2026-02-03 11:55:24.062706] [WORKER] Finished processing inbox
+[2026-02-03 11:55:24.063471] [WORKER] Received PROCESS task
+[2026-02-03 11:55:24.565670] [WORKER] Finished processing inbox
+[2026-02-03 12:00:20.865473] [WORKER] Received PROCESS task
+[2026-02-03 12:00:21.369350] [DEBUG] Found 2 files in buffer.
+[2026-02-03 12:00:21.370371] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100205_3EB0E3168DDE81C4AD7F31.json
+
+=== 2026-02-03 12:00:23.167427 [whatsapp] ===
+INPUT:
+pong
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "pong",
+  "entity": "Check",
+  "folder": "Miscellaneous",
+  "action": "append",
+  "summary": "A simple statement expressing a check on the world."
+}
+========================
+
+[2026-02-03 12:00:23.176539] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100213_3EB0BA3F98B35D9EE8B33E.json
+
+=== 2026-02-03 12:00:24.373982 [whatsapp] ===
+INPUT:
+pong
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "pong",
+  "entity": "Check",
+  "folder": "Miscellaneous",
+  "action": "append",
+  "summary": "A simple statement."
+}
+========================
+
+[2026-02-03 12:00:24.384992] [WORKER] Finished processing inbox
+[2026-02-03 12:00:24.384992] [WORKER] Received PROCESS task
+[2026-02-03 12:00:24.887860] [WORKER] Finished processing inbox
+[2026-02-03 12:10:23.995884] [WORKER] Received PROCESS task
+[2026-02-03 12:10:24.501112] [WORKER] Finished processing inbox
+[2026-02-03 12:10:24.502168] [WORKER] Received PROCESS task
+[2026-02-03 12:10:24.649550] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100776_AC81EAD1AEA7953E7B389597A7A928C7.json
+[2026-02-03 12:10:25.003549] [DEBUG] Found 1 files in buffer.
+[2026-02-03 12:10:25.003549] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100776_AC81EAD1AEA7953E7B389597A7A928C7.json
+
+=== 2026-02-03 12:10:26.556666 [whatsapp] ===
+INPUT:
+Are you online if yes make a file alive in alert
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Are you online if yes make a file alive",
+  "entity": "Alert",
+  "folder": "alert",
+  "action": "append",
+  "summary": "Checking if the system is online."
+}
+========================
+
+[2026-02-03 12:10:26.567690] [WORKER] Finished processing inbox
+[2026-02-03 12:10:26.567690] [WORKER] Received PROCESS task
+[2026-02-03 12:10:27.071971] [WORKER] Finished processing inbox
+[2026-02-03 12:11:57.128408] [MONITOR] Detected new file via Watchdog: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100916_ACE8832FB9245FC8D8C8F56E734C89E9.json
+[2026-02-03 12:11:57.130623] [WORKER] Received PROCESS task
+[2026-02-03 12:11:57.631922] [DEBUG] Found 1 files in buffer.
+[2026-02-03 12:11:57.632936] [DEBUG] Processing file: C:\Users\madha\Desktop\ideamanger\data\inbox_buffer\wa_1770100916_ACE8832FB9245FC8D8C8F56E734C89E9.json
+
+=== 2026-02-03 12:11:58.734148 [whatsapp] ===
+INPUT:
+Loving it
+
+...
+
+AI OUTPUT:
+{
+  "refined_content": "Loving it",
+  "entity": "Personal",
+  "folder": "Relationships",
+  "action": "append",
+  "summary": "An expression of positive sentiment."
+}
+========================
+
+[2026-02-03 12:11:58.750680] [WORKER] Finished processing inbox

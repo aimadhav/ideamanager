@@ -5,3 +5,20 @@ __pycache__/
 *.pyc
 node_modules/
 .DS_Store
+
+# Runtime Data
+data/whatsapp_auth/
+data/inbox_buffer/
+data/attachments_buffer/
+data/logs/
+data/raw/
+*.log
+runtime_log.txt
+node_output.txt
+startup_output.txt
+
+# System Files
+.agents/
+.claude/
+.codex/
+.opencode/

@@ -2,22 +2,26 @@ from datetime import datetime
 import re
 import json
 import os
-from src.config import RAW_HISTORY_FILE, MEMORIES_DIR, BASE_DIR, LOGS_DIR
+import glob
+import shutil
+from pathlib import Path
+from src.config import RAW_HISTORY_FILE, MEMORIES_DIR, BASE_DIR, LOGS_DIR, INBOX_BUFFER_DIR, LIBRARY_DIR
 from src.file_ops import pop_inbox, append_to_file
 from src.registry import Registry
 from src.ai_engine import AIEngine
+from src.capabilities import Capabilities
 
 # Initialize Singletons
 registry = Registry()
 ai = AIEngine()
 
-def log_transaction(raw_input, ai_output):
+def log_transaction(raw_input, ai_output, source="text"):
     """Logs the input and AI decision for debugging."""
     log_file = LOGS_DIR / "ingestion.log"
     entry = f"""
-=== {datetime.now()} ===
+=== {datetime.now()} [{source}] ===
 INPUT:
-{raw_input}
+{raw_input[:1000]}...
 
 AI OUTPUT:
 {json.dumps(ai_output, indent=2, ensure_ascii=False)}
@@ -25,36 +29,83 @@ AI OUTPUT:
 """
     append_to_file(log_file, entry)
 
-def process_inbox():
-    """Main ingestion logic - AI Driven."""
-    # Note: Locking is now handled by the Queue consumer in main.py
-    
-    # Atomic Read & Clear
-    content = pop_inbox()
-    
-    if not content or not content.strip():
-        # Silent return to avoid log spam on empty checks
-        return
+def _move_attachment_to_library(filepath):
+    """Moves a file to Memories/Library/YYYY/MM/filename.ext"""
+    try:
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        
+        target_dir = LIBRARY_DIR / year / month
+        target_dir.mkdir(parents=True, exist_ok=True)
+        
+        src_path = Path(filepath)
+        filename = src_path.name
+        # Clean filename
+        safe_name = re.sub(r'[^\w\s\-\.]', '', filename).replace(' ', '_').lower()
+        
+        dest_path = target_dir / safe_name
+        
+        # Handle duplicates
+        if dest_path.exists():
+            timestamp = int(now.timestamp())
+            dest_path = target_dir / f"{timestamp}_{safe_name}"
+            
+        shutil.move(src_path, dest_path)
+        return dest_path
+    except Exception as e:
+        print(f"Error moving attachment: {e}")
+        return None
 
-    print(f"Processing content: {content[:50]}...")
+def _enrich_content(text, attachment_path=None):
+    """
+    Expands content by:
+    1. Extracting text from PDF attachments
+    2. Fetching content from URLs (YouTube/Web)
+    Returns: (enriched_text_for_ai, user_visible_summary_blocks)
+    """
+    ai_context_blocks = []
+    
+    # 1. Attachment Handling
+    if attachment_path:
+        file_ext = attachment_path.suffix.lower()
+        if file_ext == ".pdf":
+            print(f"   Reading PDF: {attachment_path.name}")
+            pdf_text = Capabilities.extract_pdf_text(attachment_path)
+            ai_context_blocks.append(f"\n--- [ATTACHMENT CONTEXT: {attachment_path.name}] ---\n{pdf_text[:20000]}\n-----------------------------------\n")
+    
+    # 2. Link Expansion
+    urls = Capabilities.extract_urls(text)
+    for url in urls:
+        print(f"   Found Link: {url}")
+        if Capabilities.is_youtube_url(url):
+            print("   Fetching YouTube Transcript...")
+            title, transcript = Capabilities.fetch_youtube_transcript(url)
+            if transcript:
+                ai_context_blocks.append(f"\n--- [YOUTUBE TRANSCRIPT: {title}] ---\n{transcript[:20000]}\n-----------------------------------\n")
+        else:
+            print("   Fetching Web Article...")
+            title, content = Capabilities.fetch_web_content(url)
+            if content:
+                ai_context_blocks.append(f"\n--- [WEB CONTENT: {title}] ---\n{content}\n-----------------------------------\n")
 
-    # 1. Raw Backup
+    return "".join(ai_context_blocks)
+
+def _finalize_item(content, source="text", extra_context=""):
+    """Shared logic to send to AI and save result."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    raw_entry = f"--- {timestamp} ---\n{content}\n----------------\n"
-    append_to_file(RAW_HISTORY_FILE, raw_entry)
-    print("Backed up to raw history.")
-
+    
+    # 1. Prepare Prompt
+    full_prompt = f"{content}\n\n{extra_context}"
+    
     # 2. AI Processing
-    print("Processing with AI...")
+    print("   Thinking...")
     context = registry.get_all_entities_summary()
+    result = ai.process_thought(full_prompt, context)
     
-    # Send everything to AI
-    result = ai.process_thought(content, context)
+    log_transaction(full_prompt, result, source)
     
-    # Log the result
-    log_transaction(content, result)
-    
-    # Ensure result is a dict (fallback for extreme errors)
+    # Ensure result is dict
     if not isinstance(result, dict):
         result = {"action": "fallback", "refined_content": content}
 
@@ -62,19 +113,11 @@ def process_inbox():
     action = result.get("action", "fallback")
     refined_content = result.get("refined_content", content)
     
-    # Safety: If refined_content is missing
-    if refined_content is None: 
-        refined_content = content
+    if refined_content is None: refined_content = content
 
-    # FIX: Strip commands from the final output (only lines/segments starting with @ai)
+    # STRIP COMMANDS (@ai)
     if refined_content:
-        # Regex explanation:
-        # (?m) -> Multiline mode
-        # (?i) -> Case insensitive (@AI, @ai)
-        # @ai -> Matches literal @ai
-        # .* -> Matches rest of the line
         refined_content = re.sub(r'(?m)(?i)^@ai.*$', '', refined_content)
-        # Also remove trailing @ai commands if they are on the same line
         refined_content = re.sub(r'(?i)\s+@ai\s+.*$', '', refined_content).strip()
 
     entity_name = result.get("entity")
@@ -83,20 +126,19 @@ def process_inbox():
 
     # 4. Execution
     if action == "fallback" or action == "error":
-        print(f"AI Action: {action}. Saving to Unsorted.")
+        print(f"   AI Action: {action}. Saving to Unsorted.")
         target_file = MEMORIES_DIR / "Unsorted.md"
-        append_to_file(target_file, f"\n## {timestamp}\n{refined_content}\n")
+        append_to_file(target_file, f"\n## {timestamp} [{source}]\n{refined_content}\n")
 
     elif action == "ambiguous":
         decision_file = BASE_DIR / "_decisions.txt"
         append_to_file(decision_file, f"\n[AMBIGUOUS] {timestamp}\nContent: {refined_content}\n")
-        print("Ambiguous content flagged.")
+        print("   Ambiguous content flagged.")
 
     elif action in ["new", "append"]:
         final_entity_name = str(entity_name) if entity_name else "Unknown"
         final_folder = str(folder) if folder else "Unsorted"
-        final_summary = str(summary) if summary else ""
-
+        
         safe_entity = re.sub(r'[^\w\s-]', '', final_entity_name).strip().replace(' ', '_').lower()
         safe_folder = re.sub(r'[^\w\s-]', '', final_folder).strip().replace(' ', '_').lower()
         
@@ -107,13 +149,91 @@ def process_inbox():
         append_to_file(file_path, f"\n## {timestamp}\n{refined_content}\n")
         
         if action == "new":
-            registry.add_entity(final_entity_name, safe_folder, str(file_path.relative_to(BASE_DIR)), final_summary)
+            registry.add_entity(final_entity_name, safe_folder, str(file_path.relative_to(BASE_DIR)), summary)
         else:
             registry.update_entity_timestamp(final_entity_name)
             
-        print(f"Processed: {action.upper()} -> {file_path}")
+        print(f"   Processed: {action.upper()} -> {file_path}")
 
-    # Cleanup is done at start (pop_inbox)
+def process_buffer():
+    """Checks the INBOX_BUFFER_DIR for new JSON packets."""
+    # Glob all .json files
+    files = sorted(glob.glob(str(INBOX_BUFFER_DIR / "*.json")))
+    
+    if not files:
+        return
+
+    log_file = LOGS_DIR / "ingestion.log"
+    append_to_file(log_file, f"[{datetime.now()}] [DEBUG] Found {len(files)} files in buffer.")
+    
+    for json_file in files:
+        try:
+            append_to_file(log_file, f"[{datetime.now()}] [DEBUG] Processing file: {json_file}")
+            print(f"Processing Buffer Item: {Path(json_file).name}")
+            with open(json_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # Extract basic data
+            text = data.get("text", "")
+            media_path = data.get("media_path")
+            
+            # Archive Attachment
+            final_attachment_path = None
+            if media_path and os.path.exists(media_path):
+                # SECURITY: Ensure media_path is within ATTACHMENTS_BUFFER_DIR
+                from src.config import ATTACHMENTS_BUFFER_DIR
+                media_path_abs = Path(media_path).resolve()
+                buffer_dir_abs = ATTACHMENTS_BUFFER_DIR.resolve()
+                
+                if buffer_dir_abs in media_path_abs.parents or media_path_abs == buffer_dir_abs:
+                    print(f"   Archiving attachment...")
+                    final_attachment_path = _move_attachment_to_library(media_path)
+                else:
+                    print(f"   SECURITY WARNING: Attempted to move file outside buffer: {media_path}")
+            
+            # Expand Content (OCR / Link Fetch)
+            extra_context = _enrich_content(text, final_attachment_path)
+            
+            # If we have an attachment path, append it to the user text so the AI knows where it is
+            if final_attachment_path:
+                text += f"\n\n[System: Associated file archived at: {final_attachment_path}]"
+
+            # Finalize
+            _finalize_item(text, source="whatsapp", extra_context=extra_context)
+            
+            # Cleanup
+            os.remove(json_file)
+            print("   Buffer item cleared.")
+
+        except Exception as e:
+            print(f"Error processing buffer file {json_file}: {e}")
+            # Move to error folder? For now just log and skip deletion so we don't lose data?
+            # Or delete to prevent infinite loop?
+            # Better: Rename to .error
+            try:
+                Path(json_file).rename(Path(json_file).with_suffix(".error"))
+            except: pass
+
+def process_inbox():
+    """Main ingestion logic."""
+    
+    # 1. Check Buffer First (Priority)
+    process_buffer()
+
+    # 2. Check Text Inbox
+    content = pop_inbox()
+    if content and content.strip():
+        print(f"Processing Inbox Content: {content[:30]}...")
+        
+        # Raw Backup
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        raw_entry = f"--- {timestamp} ---\n{content}\n----------------\n"
+        append_to_file(RAW_HISTORY_FILE, raw_entry)
+        
+        # Expand Content (Links in text)
+        extra_context = _enrich_content(content, attachment_path=None)
+        
+        _finalize_item(content, source="desktop", extra_context=extra_context)
 
 if __name__ == "__main__":
     process_inbox()

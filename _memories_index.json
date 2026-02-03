@@ -35,6 +35,60 @@
       "summary": "Saving information about a startup called cramit.",
       "created_at": "2026-02-03T04:40:33.268939",
       "last_updated": "2026-02-03T04:41:32.522752"
+    },
+    "browserautomation": {
+      "entity_name": "BrowserAutomation",
+      "type": "entity",
+      "folder": "learningcs",
+      "file": "Memories\\learningcs\\browserautomation.md",
+      "summary": "Important points extracted and tidied from a text describing how to build a browser automation system.",
+      "created_at": "2026-02-03T05:32:35.796316",
+      "last_updated": "2026-02-03T05:35:24.163720"
+    },
+    "paneer": {
+      "entity_name": "Paneer",
+      "type": "entity",
+      "folder": "cooking",
+      "file": "Memories\\cooking\\paneer.md",
+      "summary": "Information about the protein composition of paneer.",
+      "created_at": "2026-02-03T06:25:45.053698",
+      "last_updated": "2026-02-03T06:25:45.053698"
+    },
+    "personal": {
+      "entity_name": "Personal",
+      "type": "entity",
+      "folder": "relationships",
+      "file": "Memories\\relationships\\personal.md",
+      "summary": "An expression of affection.",
+      "created_at": "2026-02-03T06:34:50.839906",
+      "last_updated": "2026-02-03T06:34:50.839906"
+    },
+    "enna sona": {
+      "entity_name": "Enna Sona",
+      "type": "entity",
+      "folder": "songs",
+      "file": "Memories\\songs\\enna_sona.md",
+      "summary": "Completed the lyrics of the song 'Enna Sona'.",
+      "created_at": "2026-02-03T06:50:04.421011",
+      "last_updated": "2026-02-03T06:50:11.754407"
+    },
+    "check": {
+      "entity_name": "Check",
+      "type": "entity",
+      "folder": "miscellaneous",
+      "file": "Memories\\miscellaneous\\check.md",
+      "summary": "A simple statement expressing a check on the world.",
+      "created_at": "2026-02-03T07:24:21.617531",
+      "last_updated": "2026-02-03T07:36:06.925823"
+    },
+    "birds": {
+      "entity_name": "Birds",
+      "type": "entity",
+      "folder": "animals",
+      "file": "Memories\\animals\\birds.md",
+      "summary": "The user asks for a bird name, and the AI responds with 'robin'.",
+      "created_at": "2026-02-03T07:36:41.739354",
+      "last_updated": "2026-02-03T07:36:41.739354"
     }
   }
 }

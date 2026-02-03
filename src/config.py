@@ -21,7 +21,20 @@ DATA_DIR = BASE_DIR / "data"
 RAW_HISTORY_FILE = DATA_DIR / "raw" / "history.txt"
 LOGS_DIR = DATA_DIR / "logs"
 
+# Phase 2: WhatsApp & Buffer Paths
+INBOX_BUFFER_DIR = DATA_DIR / "inbox_buffer"
+ATTACHMENTS_BUFFER_DIR = DATA_DIR / "attachments_buffer"
+LIBRARY_DIR = MEMORIES_DIR / "Library"
+WATCHLIST_DIR = MEMORIES_DIR / "WatchList"
+
+# Runtime Settings
+SINGLE_INSTANCE_PORT = int(os.environ.get("SINGLE_INSTANCE_PORT", 65432))
+
 # Ensure directories exist
 MEMORIES_DIR.mkdir(parents=True, exist_ok=True)
 RAW_HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
+INBOX_BUFFER_DIR.mkdir(parents=True, exist_ok=True)
+ATTACHMENTS_BUFFER_DIR.mkdir(parents=True, exist_ok=True)
+LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
+WATCHLIST_DIR.mkdir(parents=True, exist_ok=True)

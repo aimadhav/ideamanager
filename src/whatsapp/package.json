@@ -1,0 +1,19 @@
+{
+  "name": "ideamanager-whatsapp-bridge",
+  "version": "1.0.0",
+  "description": "WhatsApp Bridge for IdeaManager using Baileys",
+  "main": "bridge.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bridge.js",
+    "get-groups": "node get_groups.js"
+  },
+  "author": "IdeaManager",
+  "license": "ISC",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "dotenv": "^17.2.3",
+    "pino": "^10.3.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

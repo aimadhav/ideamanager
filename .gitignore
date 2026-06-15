@@ -7,18 +7,22 @@ node_modules/
 .DS_Store
 
 # Runtime Data
-data/whatsapp_auth/
-data/inbox_buffer/
-data/attachments_buffer/
-data/logs/
-data/raw/
+data/
+Memories/
 *.log
 runtime_log.txt
 node_output.txt
 startup_output.txt
+_errors.txt
 
 # System Files
 .agents/
 .claude/
 .codex/
 .opencode/
+
+# Personal/Agent Context (Exclude from Public Repo)
+todo_later.md
+context.md
+openclaw.md
+_memories_index.json

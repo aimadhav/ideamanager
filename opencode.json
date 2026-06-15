@@ -1,44 +1,42 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "google-vertex/gemini-3-pro-preview",
+  "model": "google-vertex/gemini-3.1-pro-preview",
   "provider": {
     "google-vertex": {
       "options": {
-        "project": "lustrous-strand-485621-q1",
+        "project": "your-project-id",
         "location": "global"
       },
       "models": {
-        "gemini-3-pro-preview": {
-          "name": "Gemini 3 Pro (Thinking)",
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "high",
-              "includeThoughts": true
-            }
-          }
-        },
         "gemini-3-flash-preview": {
-          "name": "Gemini 3 Flash (Thinking)",
+          "name": "Gemini 3 Flash (Fast Reasoning)",
           "options": {
-            "thinkingLevel": "medium",
-            "includeThoughts": true
-          }
-        },
-        "gemini-2.5-pro": {
-          "name": "Gemini 2.5 Pro (Thinking)",
-          "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 8192,
-              "includeThoughts": true
+            "generationConfig": {
+              "thinkingConfig": { "includeThoughts": true, "thinkingLevel": "medium" }
             }
           }
         },
-        "gemini-2.5-flash": {
-          "name": "Gemini 2.5 Flash (Thinking)",
+        "gemini-3.1-flash-lite-preview": {
+          "name": "Gemini 3.1 Flash-Lite (Max Speed)",
           "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 4096,
-              "includeThoughts": true
+            "generationConfig": {
+              "thinkingConfig": { "includeThoughts": true, "thinkingLevel": "low" }
+            }
+          }
+        },
+        "gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 Pro (Deep Thinking)",
+          "options": {
+            "generationConfig": {
+              "thinkingConfig": { "includeThoughts": true, "thinkingLevel": "high" }
+            }
+          }
+        },
+        "gemini-3.1-pro-preview-customtools": {
+          "name": "Gemini 3.1 Pro (Agentic Coding)",
+          "options": {
+            "generationConfig": {
+              "thinkingConfig": { "includeThoughts": true, "thinkingLevel": "high" }
             }
           }
         }

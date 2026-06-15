@@ -25,6 +25,7 @@ LOGS_DIR = DATA_DIR / "logs"
 INBOX_BUFFER_DIR = DATA_DIR / "inbox_buffer"
 ATTACHMENTS_BUFFER_DIR = DATA_DIR / "attachments_buffer"
 LIBRARY_DIR = MEMORIES_DIR / "Library"
+MEDIA_DIR = MEMORIES_DIR / "Media"
 WATCHLIST_DIR = MEMORIES_DIR / "WatchList"
 
 # Runtime Settings
@@ -37,4 +38,5 @@ LOGS_DIR.mkdir(parents=True, exist_ok=True)
 INBOX_BUFFER_DIR.mkdir(parents=True, exist_ok=True)
 ATTACHMENTS_BUFFER_DIR.mkdir(parents=True, exist_ok=True)
 LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
+MEDIA_DIR.mkdir(parents=True, exist_ok=True)
 WATCHLIST_DIR.mkdir(parents=True, exist_ok=True)

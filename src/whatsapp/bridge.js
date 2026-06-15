@@ -125,7 +125,11 @@ async function startBridge() {
 
                 // 2. Handle Attachments
                 let attachmentPath = null;
-                const isMedia = msg.message.imageMessage || msg.message.videoMessage || msg.message.documentMessage;
+                const isMedia = msg.message.imageMessage || 
+                                msg.message.videoMessage || 
+                                msg.message.documentMessage || 
+                                msg.message.audioMessage || 
+                                msg.message.stickerMessage;
 
                 if (isMedia) {
                     console.log("   📎 Downloading attachment...");
@@ -139,6 +143,8 @@ async function startBridge() {
                     let ext = '.bin';
                     if (msg.message.imageMessage) ext = '.jpg';
                     if (msg.message.videoMessage) ext = '.mp4';
+                    if (msg.message.audioMessage) ext = '.ogg';
+                    if (msg.message.stickerMessage) ext = '.webp';
                     if (msg.message.documentMessage) ext = path.extname(msg.message.documentMessage.fileName || "") || '.pdf';
 
                     const filename = `att_${ts}_${msg.key.id}${ext}`;

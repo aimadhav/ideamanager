@@ -40,16 +40,14 @@ def pop_inbox(retries=5, delay=0.1):
             if not INBOX_FILE.exists():
                 return ""
             
-            # OPTIMIZATION: If file is empty or just whitespace, don't touch it.
-            # We read just the first few bytes to check.
-            if os.path.getsize(INBOX_FILE) < 3:
-                # Check actual content without locking hard
-                with open(INBOX_FILE, 'r', encoding='utf-8') as check_f:
-                    if not check_f.read().strip():
-                        return ""
+            # CLAIM THE FILE: Check if it has real content first
+            with open(INBOX_FILE, 'r', encoding='utf-8') as check_f:
+                if not check_f.read().strip():
+                    return ""
 
             # Rename first to claim the file
             os.rename(INBOX_FILE, processing_file)
+
             
             # Immediately recreate the empty inbox file so the user can continue writing
             # We use a brief sleep or try loop to ensure OS releases the handle if needed
